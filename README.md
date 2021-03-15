@@ -1,1 +1,1 @@
-# WAFrontEnd
+Front-end kod za Web aplikacije
