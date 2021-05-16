@@ -1,14 +1,12 @@
 <template>
-  <div class="background">
-    <div class="container-fluid no-gutters no-padding">
-      <div class="row no-gutters no-padding">
+  <div class="bg">
+    <div class="container-fluid">
+      <div class="row">
         
-        <div class="col-3">
-          a
-        </div>
+        <div class="col-2" />
 
-        <div class="col-6 middle">
-          a
+        <div class="col-8 middle">
+          
           <div class="text-box-centered">
             <h1 class="main-title">Buzzer</h1>
             <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
@@ -26,13 +24,18 @@
               <button type="button" class="button" @click="RegisterFn()">Register</button>
               </router-link>
             </div>
+
+            <div class="MainPage">
+              <router-link to="/MainPage">
+              <button type="button" class="button" @click="RegisterFn()">Go to main page</button>
+              </router-link>
+            </div>
+
           </div>
 
         </div>
 
-        <div class="col-3">
-          a
-        </div>
+        <div class="col-2" />
 
       </div>
     </div>
@@ -50,28 +53,30 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
-.background {
+.bg {
   background-color: #2D2D2D;
 }
-.no-padding { /*no padding on the column/row -- found on stack-overflow*/
+
+/*no padding on the column/row -- found on stack-overflow*/
+/* .no-padding { 
     padding-left: 0;
     padding-right: 0;
-}
-.row.no-gutter { /*no margin on the column/row -- found on stack-overflow*/
+} */
+
+/*no margin on the column/row -- found on stack-overflow*/
+/* .row.no-gutter {
     margin-left: 0;
     margin-right: 0;
-}
+} */
 
-.middle {
-  height: 100%;
+.text-box-centered {
   background-color: gold;
-}
-
-.text-box-centered { 
   position: absolute;
-  top: 35%;
+  border-radius: 4px;
+  width: 1000px;
+  height: 600px;
   left: 15%;
   right: 15%;
   text-align: center;    
