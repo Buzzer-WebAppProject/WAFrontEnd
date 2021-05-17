@@ -3,14 +3,16 @@
     <div class="container-fluid">
       <div class="row">
         
-        <div class="col-2" />
+        <div class="col-3" />
 
-        <div class="col-8 middle">
+        <div class="col-6 middle">
           
           <div class="text-box-centered">
-            <h1 class="main-title">Buzzer</h1>
-            <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
-            <p class="direct">Click here to continue without login</p>
+            <div class="introText">
+              <h1 class="main-title">Buzzer</h1>
+              <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
+              <p class="direct">Click here to continue without login</p>
+            </div>
 
             
             <div class="Login">
@@ -35,7 +37,7 @@
 
         </div>
 
-        <div class="col-2" />
+        <div class="col-3" />
 
       </div>
     </div>
@@ -43,12 +45,10 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'landing',
   components: {
-    HelloWorld
   }
 }
 </script>
@@ -57,6 +57,9 @@ export default {
 
 .bg {
   background-color: #2D2D2D;
+  min-height: 100%;
+  width: auto;
+  padding-bottom: 0px;
 }
 
 /*no padding on the column/row -- found on stack-overflow*/
@@ -73,13 +76,18 @@ export default {
 
 .text-box-centered {
   background-color: gold;
-  position: absolute;
-  border-radius: 4px;
-  width: 1000px;
+  /* position: absolute; */
+  margin-top: 10%;
+  border-radius: 8px;
+  width: 800px;
   height: 600px;
   left: 15%;
   right: 15%;
   text-align: center;    
+}
+
+.introText {
+  padding-top: 10%;
 }
 
 .button { /*the styling for our button*/

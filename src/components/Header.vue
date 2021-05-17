@@ -4,17 +4,23 @@
         <div class="container-fluid">
             <div class="row">
                 
-                <div class="col-4 left">
-                    Lijeva strana headera
+                <div class="col-2 logo">
+                    <img class="resize" :src="require('@/assets/circle-logo.png')">
                 </div>
 
-                <div class="col-4 middle">
-                    Sredina headera
+                <div class="col-3 MyGrid text-bottom">
+                    <p class="MyGridText"> MyGrid</p>                       
                 </div>
 
-                <div class="col-4 right">
+                <div class="col-3 About">
                     Desna strana headera
                 </div>
+
+                <div class="col-3 Introduction">
+                    Desna strana headera
+                </div>
+
+                <div class="col-1 empty" />
 
             </div>
         </div>
@@ -24,15 +30,35 @@
 </template>
 
 <style scoped>
+.backgrnd {
+    background-color: gold;
+}
+.logo {
+    border: 1px solid #2d2d2d;
+    padding-top: 1%;
+}
 
-.left{
-    background-color: crimson;
+.resize {
+    padding-top: 0;
+    height: 70px;
+    width: 70px;
 }
-.middle {
-    background-color: chocolate;
+
+.MyGrid {
+    border: 1px solid #2d2d2d;
 }
-.right {
-    background-color: blueviolet;
+.MyGridText {
+    position: relative;
+    bottom: auto;
+}
+.About {
+    border: 1px solid #2d2d2d;
+}
+.Introduction{
+    border: 1px solid #2d2d2d;
+}
+.empty {
+    border: 1px solid #2d2d2d;
 }
 
 </style>
