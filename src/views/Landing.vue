@@ -29,7 +29,7 @@
 
             <div class="MainPage">
               <router-link to="/MainPage">
-              <button type="button" class="button" @click="RegisterFn()">Go to main page</button>
+              <button type="button" class="button">Go to main page</button>
               </router-link>
             </div>
 
@@ -49,6 +49,14 @@
 export default {
   name: 'landing',
   components: {
+  },
+  methods: {
+    LoginFn() {
+
+    },
+    RegisterFn() {
+      
+    }
   }
 }
 </script>
