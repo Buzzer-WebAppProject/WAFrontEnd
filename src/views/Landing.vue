@@ -1,18 +1,18 @@
 <template>
-  <div class="background">
-    <div class="container-fluid no-gutters no-padding">
-      <div class="row no-gutters no-padding">
+  <div class="bg">
+    <div class="container-fluid">
+      <div class="row">
         
-        <div class="col-3">
-          a
-        </div>
+        <div class="col-3" />
 
         <div class="col-6 middle">
-          a
+          
           <div class="text-box-centered">
-            <h1 class="main-title">Buzzer</h1>
-            <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
-            <p class="direct">Click here to continue without login</p>
+            <div class="introText">
+              <h1 class="main-title">Buzzer</h1>
+              <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
+              <p class="direct">Click here to continue without login</p>
+            </div>
 
             
             <div class="Login">
@@ -26,13 +26,18 @@
               <button type="button" class="button" @click="RegisterFn()">Register</button>
               </router-link>
             </div>
+
+            <div class="MainPage">
+              <router-link to="/MainPage">
+              <button type="button" class="button">Go to main page</button>
+              </router-link>
+            </div>
+
           </div>
 
         </div>
 
-        <div class="col-3">
-          a
-        </div>
+        <div class="col-3" />
 
       </div>
     </div>
@@ -40,41 +45,57 @@
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'landing',
   components: {
-    HelloWorld
+  },
+  methods: {
+    LoginFn() {
+
+    },
+    RegisterFn() {
+      
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
 
-.background {
+.bg {
   background-color: #2D2D2D;
+  min-height: 100%;
+  width: auto;
+  padding-bottom: 0px;
 }
-.no-padding { /*no padding on the column/row -- found on stack-overflow*/
+
+/*no padding on the column/row -- found on stack-overflow*/
+/* .no-padding { 
     padding-left: 0;
     padding-right: 0;
-}
-.row.no-gutter { /*no margin on the column/row -- found on stack-overflow*/
+} */
+
+/*no margin on the column/row -- found on stack-overflow*/
+/* .row.no-gutter {
     margin-left: 0;
     margin-right: 0;
-}
+} */
 
-.middle {
-  height: 100%;
+.text-box-centered {
   background-color: gold;
-}
-
-.text-box-centered { 
-  position: absolute;
-  top: 35%;
+  /* position: absolute; */
+  margin-top: 10%;
+  border-radius: 8px;
+  width: 800px;
+  height: 600px;
   left: 15%;
   right: 15%;
   text-align: center;    
+}
+
+.introText {
+  padding-top: 10%;
 }
 
 .button { /*the styling for our button*/
