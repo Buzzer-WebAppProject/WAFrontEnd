@@ -1,32 +1,33 @@
 <template>
   <div class="bg">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         
-        <div class="col-3" />
-
-        <div class="col-6 middle">
+        <div class="col-sm" />
+    
+        <div class="col-sm">
           
-          <div class="text-box-centered">
+          <div class="text-box">
             <div class="introText">
               <h1 class="main-title">Buzzer</h1>
+              <hr>
               <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
               <p class="direct">Click here to continue without login</p>
             </div>
 
-            
+             <br>
             <div class="Login">
               <router-link to="/Login">
               <button type="button" class="button" @click="LoginFn()">Login</button>
               </router-link>
             </div>
-
+             <br>
             <div class="Register">
               <router-link to="/Signup">
               <button type="button" class="button" @click="RegisterFn()">Register</button>
               </router-link>
             </div>
-
+             <br>
             <div class="MainPage">
               <router-link to="/MainPage">
               <button type="button" class="button">Go to main page</button>
@@ -37,22 +38,24 @@
 
         </div>
 
-        <div class="col-3" />
+        <div class="col-sm" />
 
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from '@/components/Footer.vue';
 
 export default {
   name: 'landing',
   components: {
+     Footer
   },
   methods: {
     LoginFn() {
-
     },
     RegisterFn() {
       
@@ -62,27 +65,23 @@ export default {
 </script>
 
 <style scoped>
-
 .bg {
   background-color: #2D2D2D;
   min-height: 100%;
   width: auto;
   padding-bottom: 0px;
 }
-
 /*no padding on the column/row -- found on stack-overflow*/
 /* .no-padding { 
     padding-left: 0;
     padding-right: 0;
 } */
-
 /*no margin on the column/row -- found on stack-overflow*/
 /* .row.no-gutter {
     margin-left: 0;
     margin-right: 0;
 } */
-
-.text-box-centered {
+.text-box {
   background-color: gold;
   /* position: absolute; */
   margin-top: 10%;
@@ -94,19 +93,26 @@ export default {
   text-align: center;    
 }
 
+hr {
+    height: 1px;
+    width: 400px;
+    color: #2D2D2D;
+    background-color: #2D2D2D;
+    border: none;
+}
+
+
+
 .introText {
   padding-top: 10%;
 }
-
 .button { /*the styling for our button*/
     
 	width: 150px;
 	border-radius: 10px; /*rounded*/
 	padding: 5px; 
-
 	background-color: #2D2D2D;
 	color: white;
-
 	font-size: 16px;
 	text-align: center;
 	
