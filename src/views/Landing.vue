@@ -2,44 +2,45 @@
   <div class="bg">
     <div class="container">
       <div class="row">
-        
         <div class="col-sm" />
-    
+
         <div class="col-sm">
-          
           <div class="text-box">
             <div class="introText">
               <h1 class="main-title">Buzzer</h1>
-              <hr>
-              <p class="desc">Welcome to Buzzer, your beekeeping companion application.</p>
-              <p class="direct">Click here to continue without login</p>
+              <hr />
+              <p class="desc">
+                Welcome to Buzzer, your beekeeping companion application.
+              </p>
+              <!-- <p class="direct">Click here to continue without login</p> -->
             </div>
 
-             <br>
+            <br />
             <div class="Login">
               <router-link to="/Login">
-              <button type="button" class="button" @click="LoginFn()">Login</button>
+                <button type="button" class="button" @click="LoginFn()">
+                  Login
+                </button>
               </router-link>
             </div>
-             <br>
+            <br />
             <div class="Register">
               <router-link to="/Signup">
-              <button type="button" class="button" @click="RegisterFn()">Register</button>
+                <button type="button" class="button" @click="RegisterFn()">
+                  Register
+                </button>
               </router-link>
             </div>
-             <br>
+            <br />
             <div class="MainPage">
               <router-link to="/MainPage">
-              <button type="button" class="button">Go to main page</button>
+                <button type="button" class="button">Go to main page</button>
               </router-link>
             </div>
-
           </div>
-
         </div>
 
         <div class="col-sm" />
-
       </div>
     </div>
     <Footer />
@@ -47,40 +48,27 @@
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue';
+import Footer from "@/components/Footer.vue";
 
 export default {
-  name: 'landing',
+  name: "landing",
   components: {
-     Footer
+    Footer,
   },
   methods: {
-    LoginFn() {
-    },
-    RegisterFn() {
-      
-    }
-  }
-}
+    LoginFn() {},
+    RegisterFn() {},
+  },
+};
 </script>
 
 <style scoped>
 .bg {
-  background-color: #2D2D2D;
+  background-color: #2d2d2d;
   min-height: 100%;
   width: auto;
   padding-bottom: 0px;
 }
-/*no padding on the column/row -- found on stack-overflow*/
-/* .no-padding { 
-    padding-left: 0;
-    padding-right: 0;
-} */
-/*no margin on the column/row -- found on stack-overflow*/
-/* .row.no-gutter {
-    margin-left: 0;
-    margin-right: 0;
-} */
 .text-box {
   background-color: gold;
   /* position: absolute; */
@@ -90,58 +78,58 @@ export default {
   height: 600px;
   left: 15%;
   right: 15%;
-  text-align: center;    
+  text-align: center;
 }
 
 hr {
-    height: 1px;
-    width: 400px;
-    color: #2D2D2D;
-    background-color: #2D2D2D;
-    border: none;
+  height: 1px;
+  width: 400px;
+  color: #2d2d2d;
+  background-color: #2d2d2d;
+  border: none;
 }
-
-
 
 .introText {
   padding-top: 10%;
 }
-.button { /*the styling for our button*/
-    
-	width: 150px;
-	border-radius: 10px; /*rounded*/
-	padding: 5px; 
-	background-color: #2D2D2D;
-	color: white;
-	font-size: 16px;
-	text-align: center;
-	
-	transition: all 0.5s; /*the transition to span lasts 0.5s*/
-	cursor: pointer; /*sets our pointer as cursor to activate hover*/
+.button {
+  /*the styling for our button*/
+
+  width: 150px;
+  border-radius: 10px; /*rounded*/
+  padding: 5px;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+
+  transition: all 0.5s; /*the transition to span lasts 0.5s*/
+  cursor: pointer; /*sets our pointer as cursor to activate hover*/
 }
-.button:hover { /*styiling for a hovered button*/
-	background-color: goldenrod; /*we change the colors*/
-	color: #2D2D2D; 
+.button:hover {
+  /*styiling for a hovered button*/
+  background-color: goldenrod; /*we change the colors*/
+  color: #2d2d2d;
 }
 .button span {
-	cursor: pointer;
-	display: inline-block; /*so it displays inline to our text*/
-	position: relative;
-	transition: 0.5s;
+  cursor: pointer;
+  display: inline-block; /*so it displays inline to our text*/
+  position: relative;
+  transition: 0.5s;
 }
 .button:hover span {
-	padding-right: 25px; /*how far from the right border of our button*/
+  padding-right: 25px; /*how far from the right border of our button*/
 }
 .button span:after {
-	content: '\00bb'; /*those are the two lines that display*/
-	position: absolute;
-	opacity: 0;
-	top: 0;
-	right: -20px;
-	transition: 0.5s;
+  content: "\00bb"; /*those are the two lines that display*/
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
 }
 .button:hover span:after {
-	opacity: 1;
-	right: 0;
+  opacity: 1;
+  right: 0;
 }
 </style>
