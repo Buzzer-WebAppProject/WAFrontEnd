@@ -7,59 +7,32 @@
         </div>
 
         <div class="col-3 MyGrid text-bottom">
-          <p class="MyGridText">My Grid</p>
-          <div class="dropdown-content">
-            <div class="row">
-              <div class="col-2" />
-
-              <div class="col-4">
-                <p class="MyGridText">My Grid</p>
-              </div>
-
-              <div class="col-4">
-                <p class="MyGridText">Task Manager</p>
-              </div>
-
-              <div class="col-2" />
-            </div>
+          <div class="dropdown">
+            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">My Grid</button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+             <li><a class="dropdown-item" href="#">My Grid</a></li>
+             <li><a class="dropdown-item" href="#">Task Manager</a></li>
+            </ul>
           </div>
         </div>
 
         <div class="col-3 About">
-          <p class="AboutText">About</p>
-          <div class="dropdown-content">
-            <div class="row">
-              <div class="col-2" />
-
-              <div class="col-4">
-                <p class="AboutText">Pests and Parasite Treatment</p>
-              </div>
-
-              <div class="col-4">
-                <p class="AboutText">News regarding Apiculture</p>
-              </div>
-
-              <div class="col-2" />
-            </div>
+         <div class="dropdown">
+            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">About</button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+             <li><a class="dropdown-item" href="#">Pests and Parasite Treatment</a></li>
+             <li><a class="dropdown-item" href="#">News regarding Apiculture</a></li>
+            </ul>
           </div>
         </div>
 
         <div class="col-3 Introduction">
-          <p class="IntroductionText">Introduction</p>
-          <div class="dropdown-content">
-            <div class="row">
-              <div class="col-2" />
-
-              <div class="col-4">
-                <p class="IntroductionText">Apiculture through the ages</p>
-              </div>
-
-              <div class="col-4">
-                <p class="IntroductionText">Getting started with Beekeeping</p>
-              </div>
-
-              <div class="col-2" />
-            </div>
+          <div class="dropdown">
+            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Introduction</button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+             <li><a class="dropdown-item" href="#">Apiculture through the ages</a></li>
+             <li><a class="dropdown-item" href="#">Getting started with Beekeeping</a></li>
+            </ul>
           </div>
         </div>
 
@@ -134,6 +107,21 @@
 .show {
   display: block;
 }
+
+.button { /*the styling for our button*/
+	width: 469px;
+	padding: 5px; 
+	background-color: gold;
+	color: black;
+	font-size: 16px;
+	text-align: center;
+	transition: all 0.5s; /*the transition to span lasts 0.5s*/
+	cursor: pointer; /*sets our pointer as cursor to activate hover*/
+}
+.button:hover { /*styiling for a hovered button*/
+	background-color: goldenrod; /*we change the colors*/
+	color: #2D2D2D; 
+}
 </style>
 
 <script>
@@ -155,3 +143,4 @@ export default {
   },
 };
 </script>
+
