@@ -16,7 +16,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/Landing",
     name: "landing",
     component: Home,
   },
@@ -37,6 +37,42 @@ const routes = [
     name: "MainPage",
     component: () =>
       import(/* webpackChunkName: "signup" */ "../views/MainPage.vue"),
+  },
+  {
+    path: "/MyGrid",
+    name: "MyGrid",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/MyGrid.vue"),
+  },
+  {
+    path: "/PnP",
+    name: "Pnp",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/PnP.vue"),
+  },
+  {
+    path: "/News",
+    name: "News",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/News.vue"),
+  },
+  {
+    path: "/ThruAges",
+    name: "ThruAges",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/ThruAges.vue"),
+  },
+  {
+    path: "/GettingStarted",
+    name: "GettingStarted",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/GettingStarted.vue"),
+  },
+  {
+    path: "/TaskManager",
+    name: "TaskManager",
+    component: () =>
+      import(/* webpackChunkName: "signup" */ "../views/TaskManager.vue"),
   },
 ];
 

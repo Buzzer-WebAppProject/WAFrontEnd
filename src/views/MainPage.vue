@@ -2,11 +2,11 @@
   <div class="backgrnd">
     <Header />
 
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-4 WelcomeBox">
           <h2 class="welcomeText">
-            <strong>Welcome {{ this.userName }} {{ this.userSurname }}!</strong>
+            <strong>Welcome {{ this.userName }}!</strong>
           </h2>
         </div>
         <div class="col-4 userInfo">
@@ -18,118 +18,6 @@
           </p>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col-4">
-          <p><strong> Today's date is </strong> {{ currentDate }}</p>
-          <b-calendar
-            v-model="datum"
-            :date-format-options="{
-              year: 'numeric',
-              month: 'numeric',
-              day: 'numeric',
-            }"
-            selected-variant="warning"
-            today-variant="warning"
-            nav-button-variant="warning"
-            class="border rounded p-2 bg-dark"
-          >
-            <div class="d-flex" dir="ltr">
-              <b-button
-                size="sm"
-                variant="outline-danger"
-                v-if="datum"
-                @click="clearDate"
-              >
-                Clear
-              </b-button>
-              <b-button
-                size="sm"
-                variant="outline-warning"
-                class="ml-auto"
-                @click="setToday"
-              >
-                Set Today
-              </b-button>
-              <b-button
-                size="sm"
-                variant="outline-success"
-                v-if="datum"
-                @click="clearDate"
-              >
-                View selected
-              </b-button>
-            </div>
-          </b-calendar>
-        </div>
-
-        <div class="col-8 contentBox">
-          <div
-            id="carouselExampleIndicators"
-            class="carousel slide"
-            data-ride="carousel"
-          >
-            <ol class="carousel-indicators">
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to="0"
-                class="active"
-              ></li>
-              <li
-                data-target="#carouselExampleIndicators"
-                data-slide-to="1"
-              ></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active"></div>
-
-              <div class="carousel-item">
-                <div class="contentText" alt="Second Slide">
-                  <div
-                    v-for="bHive in beehives"
-                    :key="bHive.bId"
-                    :bHive="bHive"
-                    class="contentText"
-                    alt="First Slide"
-                  >
-                    <p><strong>Beehive ID:</strong> {{ bHive.bId }}</p>
-                    <br />
-                    <p><strong>Fed today:</strong> {{ bHive.fedToday }}</p>
-                    <br />
-                    <p><strong>Last fed:</strong> {{ bHive.bLastFed }}</p>
-                    <br />
-                    <p>
-                      <strong>Temperature inside beehive:</strong>
-                      {{ bHive.bInsTemp }}
-                    </p>
-                    <br />
-                    <p>
-                      <strong>Temperature outside beehive:</strong>
-                      {{ bHive.bOutTemp }}
-                    </p>
-                    <div class="dropdown-divider" />
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a
-              class="carousel-control-next"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="next"
-            >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-
-          <button class="button" type="button">Add new beehive</button>
-          <button class="button delBtn" type="button">Delete beehive</button>
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -137,6 +25,7 @@
 <style scoped>
 .WelcomeBox {
   padding-top: 2%;
+  margin-left: 1.5%;
   padding-left: 0;
   border: 1px solid #2d2d2d;
 }
@@ -227,80 +116,10 @@ $(".carousel").carousel({
 export default {
   name: "MainPage",
   data() {
-    return {
-      store,
-      userMail: "",
-      userName: "",
-      userSurname: "",
-      bCount: "",
-      bId: "",
-      bLastFed: "",
-      bInsTemp: "",
-      bOutTemp: "",
-      currentDate: "",
-      fedToday: "",
-      beehives: [],
-      datum: null,
-    };
+    return {};
   },
-  mounted() {
-    this.getInfo();
-    // this.getInsideTemperature();
-    // this.getOutsideTemperature();
-  },
-  methods: {
-    createBeehive() {},
-    deleteBeehive() {},
-    setFeedingDate() {},
-    getLastFeedingDate() {},
-    getInsideTemperature() {},
-    getOutsideTemperature() {},
-    getInfo() {
-      var proxyUser = store.user;
-      this.userMail = proxyUser.email;
-      this.userName = proxyUser.name;
-      this.userSurname = proxyUser.surname;
-      this.bCount = proxyUser.beehiveCount;
-
-      for (var i = 0; i < this.bCount; i++) {
-        // this loop will get data for every beehive a person has
-        var date = new Date();
-        var tDate =
-          date.getFullYear() +
-          "-" +
-          (date.getMonth() + 1) +
-          "-" +
-          date.getDate();
-
-        this.currentDate = tDate;
-        this.bId = proxyUser.beehive[i].beehiveId;
-        this.bLastFed = proxyUser.beehive[i].lastFeedingDate;
-        this.bInsTemp = proxyUser.beehive[i].insideTemp;
-        this.bOutTemp = proxyUser.beehive[i].outsideTemp;
-        this.fedToday;
-
-        if (this.currentDate != this.bLastFed) {
-          this.fedToday = "No";
-        } else this.fedToday = "Yes";
-
-        this.beehives.push({
-          // we push beehive data into our beehive array
-          bId: this.bId,
-          bLastFed: this.bLastFed,
-          bInsTemp: this.bInsTemp,
-          bOutTemp: this.bOutTemp,
-          fedToday: this.fedToday,
-        });
-      }
-      console.log(this.beehives);
-    },
-    setToday() {
-      this.datum = this.currentDate;
-    },
-    clearDate() {
-      this.datum = "";
-    },
-  },
+  mounted() {},
+  methods: {},
   components: {
     Header,
   },

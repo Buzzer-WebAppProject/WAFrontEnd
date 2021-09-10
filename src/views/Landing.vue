@@ -6,37 +6,39 @@
 
         <div class="col-sm">
           <div class="text-box">
-            <div class="introText">
-              <h1 class="main-title">Buzzer</h1>
-              <hr />
-              <p class="desc">
-                Welcome to Buzzer, your beekeeping companion application.
-              </p>
-              <!-- <p class="direct">Click here to continue without login</p> -->
-            </div>
+            <form @submit.prevent="onSubmit">
+              <div class="introText">
+                <h1 class="main-title">Buzzer</h1>
+                <div class="dropdown-divider"></div>
+                <p class="desc">
+                  Welcome to Buzzer, your beekeeping companion application.
+                </p>
+                <!-- <p class="direct">Click here to continue without login</p> -->
+              </div>
 
-            <br />
-            <div class="Login">
-              <router-link to="/Login">
-                <button type="button" class="button" @click="LoginFn()">
-                  Login
-                </button>
-              </router-link>
-            </div>
-            <br />
-            <div class="Register">
-              <router-link to="/Signup">
-                <button type="button" class="button" @click="RegisterFn()">
-                  Register
-                </button>
-              </router-link>
-            </div>
-            <br />
-            <div class="MainPage">
-              <router-link to="/MainPage">
-                <button type="button" class="button">Go to main page</button>
-              </router-link>
-            </div>
+              <br />
+              <div class="Login">
+                <router-link to="/Login">
+                  <button type="button" class="button" @click="LoginFn()">
+                    Login
+                  </button>
+                </router-link>
+              </div>
+              <br />
+              <div class="Register">
+                <router-link to="/Signup">
+                  <button type="button" class="button" @click="RegisterFn()">
+                    Register
+                  </button>
+                </router-link>
+              </div>
+              <br />
+              <div class="MainPage">
+                <router-link to="/MainPage">
+                  <button type="button" class="button">Go to main page</button>
+                </router-link>
+              </div>
+            </form>
           </div>
         </div>
 
@@ -81,12 +83,17 @@ export default {
   text-align: center;
 }
 
-hr {
-  height: 1px;
+.dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 2px solid #2d2d2d;
+}
+form {
   width: 400px;
-  color: #2d2d2d;
-  background-color: #2d2d2d;
-  border: none;
+  height: 450px;
+  margin: auto;
+  position: relative;
 }
 
 .introText {
