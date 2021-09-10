@@ -34,7 +34,7 @@
               </div>
               <br />
               <div class="MainPage">
-                <router-link to="/MainPage">
+                <router-link to="/MyGrid">
                   <button type="button" class="button">Go to main page</button>
                 </router-link>
               </div>
