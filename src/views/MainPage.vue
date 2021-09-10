@@ -23,6 +23,9 @@
 </template>
 
 <style scoped>
+.container {
+  color: whitesmoke;
+}
 .WelcomeBox {
   padding-top: 2%;
   margin-left: 1.5%;

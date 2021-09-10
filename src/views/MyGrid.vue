@@ -1,10 +1,13 @@
 <template>
   <div class="backgrnd">
     <Header />
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-4">
-          <p><strong> Today's date is </strong> {{ currentDate }}</p>
+        <div class="col-2" />
+        <div class="col-3">
+          <p style="color:white">
+            <strong> Today's date is </strong> {{ currentDate }}
+          </p>
           <b-calendar
             v-model="datum"
             :date-format-options="{
@@ -46,7 +49,7 @@
           </b-calendar>
         </div>
 
-        <div class="col-8 contentBox">
+        <div class="col-6 contentBox">
           <div
             id="carouselExampleIndicators"
             class="carousel slide"
@@ -150,14 +153,17 @@
             </a>
           </div>
         </div>
+
+        <div class="col-1" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.container {
-  border: 1px solid red;
+.container-fluid {
+  margin-top: 2%;
+  background-color: #2d2d2d;
 }
 .WelcomeBox {
   padding-top: 2%;
@@ -167,7 +173,7 @@
 
 .contentBox {
   border: 1px solid #2d2d2d;
-  background-color: #2d2d2d;
+
   color: white;
 }
 .contentText {
@@ -317,7 +323,7 @@ export default {
       var tDate =
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
-      fetch("http://localhost:3000/users")
+      fetch("http://localhost:3000/beehives")
         .then((response) => {
           return response.json();
         })

@@ -5,9 +5,9 @@
         <div class="col-sm"></div>
         <div class="col-sm">
           <div class="text-box">
-            <router-link to="../Landing">
+            <router-link to="../">
               <img
-                :src="require('@/assets/back-arrow.png')"
+                :src="require('@/assets/Items/back-arrow.png')"
                 class="backButton"
               />
               <p class="backText">

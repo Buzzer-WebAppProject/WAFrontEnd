@@ -28,7 +28,11 @@
               Beekeeping Barrier Management System for Pest and Disease Control
             </h2>
 
-            <img class="image" alt="image" src="@/assets/PnP-first.jpg" />
+            <img
+              class="image"
+              alt="image"
+              src="@/assets/PostImages/PnP-first.jpg"
+            />
             <p class="text">
               A structured approach in barrier management gives you the best
               results in pest and disease control. It allows you unique insights
@@ -49,7 +53,11 @@
               Beekeeping Barrier Management System for Pest and Disease Control
             </h2>
 
-            <img class="image" alt="image" src="@/assets/PnP-first.jpg" />
+            <img
+              class="image"
+              alt="image"
+              src="@/assets/PostImages/PnP-first.jpg"
+            />
             <p class="text">
               A structured approach in barrier management gives you the best
               results in pest and disease control. It allows you unique insights
@@ -70,7 +78,11 @@
               Beekeeping Barrier Management System for Pest and Disease Control
             </h2>
 
-            <img class="image" alt="image" src="@/assets/PnP-first.jpg" />
+            <img
+              class="image"
+              alt="image"
+              src="@/assets/PostImages/PnP-first.jpg"
+            />
             <p class="text">
               A structured approach in barrier management gives you the best
               results in pest and disease control. It allows you unique insights
@@ -92,15 +104,20 @@
 </template>
 
 <style scoped>
-/* .mid {
-  border: 1px solid red;
-} */
+.container-fluid {
+  background-color: #2d2d2d;
+}
+
+h1 {
+  color: white;
+}
+
 .dropdown-divider {
   height: 0;
   width: 30%;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 2px solid #2d2d2d;
+  border-top: 2px solid goldenrod;
 }
 .ArtTitle {
   font-size: 24px;
@@ -115,15 +132,18 @@
 }
 .paragraph {
   width: 70%;
+  color: white;
 }
 .intro {
   font-size: 16px;
   float: left;
   text-align: left;
+  color: white;
 }
 .text {
   text-align: left;
   font-size: 16px;
+  color: white;
 }
 </style>
 
