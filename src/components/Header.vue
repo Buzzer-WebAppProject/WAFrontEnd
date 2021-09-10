@@ -3,35 +3,94 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-2 logo">
-          <img class="resize" :src="require('@/assets/bee.png')" />
+          <router-link to="/MainPage">
+            <img class="resize" :src="require('@/assets/bee.png')" />
+          </router-link>
         </div>
 
         <div class="col-3 MyGrid text-bottom">
           <div class="dropdown">
-            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">My Grid</button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-             <li><a class="dropdown-item" href="#">My Grid</a></li>
-             <li><a class="dropdown-item" href="#">Task Manager</a></li>
+            <button
+              class="button"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              My Grid
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <li>
+                <router-link to="/MyGrid" class="dropdown-item"
+                  >My Grid</router-link
+                >
+              </li>
+              <li>
+                <router-link to="TaskManager" class="dropdown-item"
+                  >Task Manager</router-link
+                >
+              </li>
             </ul>
           </div>
         </div>
 
         <div class="col-3 About">
-         <div class="dropdown">
-            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">About</button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-             <li><a class="dropdown-item" href="#">Pests and Parasite Treatment</a></li>
-             <li><a class="dropdown-item" href="#">News regarding Apiculture</a></li>
+          <div class="dropdown">
+            <button
+              class="button"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              About
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <li>
+                <router-link to="/PnP" class="dropdown-item"
+                  >Pests and Parasite Treatment</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/News" class="dropdown-item"
+                  >News regarding Apiculture</router-link
+                >
+              </li>
             </ul>
           </div>
         </div>
 
         <div class="col-3 Introduction">
           <div class="dropdown">
-            <button class="button" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Introduction</button>
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
-             <li><a class="dropdown-item" href="#">Apiculture through the ages</a></li>
-             <li><a class="dropdown-item" href="#">Getting started with Beekeeping</a></li>
+            <button
+              class="button"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Introduction
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="dropdownMenuButton1"
+            >
+              <li>
+                <router-link to="/ThruAges" class="dropdown-item"
+                  >Apiculture through the ages</router-link
+                >
+              </li>
+              <li>
+                <router-link to="/GettingStarted" class="dropdown-item"
+                  >Getting started with Beekeeping</router-link
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -44,10 +103,10 @@
 
 <style scoped>
 .backgrnd {
-  background-color: gold;
+  background-color: goldenrod;
 }
+
 .logo {
-  border: 1px solid #2d2d2d;
   padding-top: 1%;
 }
 
@@ -58,7 +117,6 @@
 }
 
 .MyGrid {
-  border: 1px solid #2d2d2d;
   text-decoration: none;
   text-align: center;
   margin-top: auto;
@@ -68,19 +126,14 @@
   /* padding-bottom: 1%; */
 }
 .About {
-  border: 1px solid #2d2d2d;
   text-decoration: none;
   text-align: center;
   margin-top: auto;
 }
 .Introduction {
-  border: 1px solid #2d2d2d;
   text-decoration: none;
   text-align: center;
   margin-top: auto;
-}
-.empty {
-  border: 1px solid #2d2d2d;
 }
 
 .dropdown {
@@ -108,19 +161,21 @@
   display: block;
 }
 
-.button { /*the styling for our button*/
-	width: 469px;
-	padding: 5px; 
-	background-color: gold;
-	color: black;
-	font-size: 16px;
-	text-align: center;
-	transition: all 0.5s; /*the transition to span lasts 0.5s*/
-	cursor: pointer; /*sets our pointer as cursor to activate hover*/
+.button {
+  /*the styling for our button*/
+  width: 469px;
+  padding: 5px;
+  background-color: gold;
+  color: black;
+  font-size: 16px;
+  text-align: center;
+  transition: all 0.5s; /*the transition to span lasts 0.5s*/
+  cursor: pointer; /*sets our pointer as cursor to activate hover*/
 }
-.button:hover { /*styiling for a hovered button*/
-	background-color: goldenrod; /*we change the colors*/
-	color: #2D2D2D; 
+.button:hover {
+  /*styiling for a hovered button*/
+  background-color: goldenrod; /*we change the colors*/
+  color: #2d2d2d;
 }
 </style>
 
@@ -143,4 +198,3 @@ export default {
   },
 };
 </script>
-
