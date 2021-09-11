@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Landing.vue";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
+import { Auth } from "../services";
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import "bootstrap/dist/css/bootstrap.css";
@@ -17,7 +18,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "landing",
+    name: "Landing",
     component: Home,
   },
   {
@@ -80,6 +81,18 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const javneStranice = ["/Login", "/Signup", "/"];
+  const loginPotreban = !javneStranice.includes(to.path); // ako nisu Javne onda je nedostupno
+  const user = Auth.getUser();
+
+  if (loginPotreban && !user) {
+    next("/Login");
+    return;
+  }
+  next();
 });
 
 export default router;

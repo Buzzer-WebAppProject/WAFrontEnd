@@ -1,5 +1,4 @@
 export default {
-  authenticated: false,
   user: {
     email: "beekeper@mail.com",
     name: "David",
