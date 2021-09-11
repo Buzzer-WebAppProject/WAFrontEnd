@@ -11,12 +11,7 @@ export default {
   data() {
     return store;
   },
-
-  methods: {
-    logout() {
-      store.authenticated = false;
-    },
-  },
+  methods: {},
 };
 </script>
 

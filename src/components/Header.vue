@@ -95,7 +95,16 @@
           </div>
         </div>
 
-        <div class="col-1 empty" />
+        <div class="col-1 empty">
+          <button
+            v-if="auth.authenticated"
+            type="button"
+            class="logoutBtn"
+            @click="logoutFn()"
+          >
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -148,7 +157,7 @@
   position: absolute;
   height: 150px;
   width: 300px;
-  border: 2px solid #2d2d2d;
+  /* border: 2px solid #2d2d2d; */
   border-radius: 15px;
   background-color: white;
   /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
@@ -161,12 +170,26 @@
   display: block;
 }
 
+.logoutBtn {
+  color: white;
+  background-color: #2d2d2d;
+  margin-top: 31%;
+  border-radius: 10px;
+  border-style: ridge;
+  height: 50%;
+  width: 80%;
+  float: inline-end;
+  text-align: center;
+}
+
 .button {
   /*the styling for our button*/
   width: 469px;
   padding: 5px;
   background-color: gold;
   color: black;
+  border-radius: 10px;
+  border-style: ridge;
   font-size: 16px;
   text-align: center;
   transition: all 0.5s; /*the transition to span lasts 0.5s*/
@@ -180,20 +203,19 @@
 </style>
 
 <script>
+import { Auth } from "@/services";
+
 export default {
   name: "Header",
   data() {
-    return {};
+    return {
+      auth: Auth.state,
+    };
   },
   methods: {
-    openMyGridDpd() {
-      // method used to show more options related to MyGrid
-    },
-    openAboutDpd() {
-      // method used to show more options related to About
-    },
-    openIntroDpd() {
-      // method used to show more options related to Introduction
+    logoutFn() {
+      Auth.logoutFn();
+      this.$router.go();
     },
   },
 };

@@ -5,16 +5,13 @@
         <div class="col-sm"></div>
         <div class="col-sm">
           <div class="text-box">
-            <router-link to="../">
-              <img
-                :src="require('@/assets/Items/back-arrow.png')"
-                class="backButton"
-              />
-              <p class="backText">
+            <div>
+              <button type="button" @click="goBackFn()" class="backButton">
                 Go back
-              </p>
-            </router-link>
-            <form @submit.prevent="onSubmit">
+              </button>
+            </div>
+
+            <form @submit.prevent="loginFn()">
               <div class="introText">
                 <h1 class="main-title">Login</h1>
                 <div class="dropdown-divider"></div>
@@ -23,6 +20,7 @@
                 <label for="exampleInputEmail1">Email address</label>
                 <input
                   type="email"
+                  v-model="mail"
                   class="form-control"
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
@@ -36,6 +34,7 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input
                   type="password"
+                  v-model="password"
                   class="form-control"
                   id="exampleInputPassword1"
                   placeholder="Password"
@@ -44,7 +43,9 @@
               <br />
               <br />
               <br />
-              <button type="button" class="button">Submit</button>
+              <button type="submit" class="button">
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -89,23 +90,22 @@ form {
   position: relative;
 }
 
+.goBack {
+  float: left;
+}
 .introText {
   padding-top: 10%;
 }
 
 .backButton {
+  color: white;
+  background-color: #2d2d2d;
   float: left;
-  margin-top: 2%;
-  white-space: nowrap;
-  margin-left: 20px;
-  max-height: 20px;
-  max-width: 30px;
-}
-.backText {
-  color: #2d2d2d;
-  display: inline;
-  float: left;
+  width: 12%;
+  border-radius: 10px;
+  border-style: none;
   margin-top: 1.75%;
+  margin-left: 2%;
 }
 
 .button {
@@ -153,15 +153,37 @@ form {
 <script>
 import store from "@/store.js";
 import Footer from "@/components/Footer.vue";
+import { Auth } from "@/services";
 
 export default {
   name: "login",
+  data() {
+    return {
+      auth: Auth.state,
+      mail: "",
+      password: "",
+    };
+  },
   components: {
     Footer,
   },
   methods: {
     onSubmit() {
       store.authenticated = true;
+    },
+    goBackFn() {
+      this.$router.push({ name: "Landing" });
+    },
+    async loginFn() {
+      // funkcija za login
+      let success = await Auth.loginFn(this.mail, this.password);
+
+      console.log("loggin in", this.auth.userEmail);
+      console.log("with", localStorage.getItem("user"));
+
+      if (success == true) {
+        this.$router.push({ name: "MyGrid" });
+      }
     },
   },
 };
