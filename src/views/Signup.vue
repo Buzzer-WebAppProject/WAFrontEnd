@@ -5,15 +5,11 @@
         <div class="col-sm"></div>
         <div class="col-sm">
           <div class="text-box">
-            <router-link to="../">
-              <img
-                :src="require('@/assets/Items/back-arrow.png')"
-                class="backButton"
-              />
-              <p class="backText">
+            <div>
+              <button type="button" @click="goBackFn()" class="backButton">
                 Go back
-              </p>
-            </router-link>
+              </button>
+            </div>
             <form @submit.prevent="onSubmit">
               <div class="introText">
                 <h1 class="main-title">Register</h1>
@@ -24,8 +20,10 @@
                 <label for="fnameField">Full Name</label>
                 <input
                   type="text"
+                  v-model="fullname"
                   class="form-control"
                   id="fnameField"
+                  required
                   placeholder="e.g John Doe"
                 />
               </div>
@@ -33,9 +31,11 @@
                 <label for="emailField">Email address</label>
                 <input
                   type="email"
+                  v-model="email"
                   class="form-control"
                   id="emailField"
                   aria-describedby="emailHelp"
+                  required
                   placeholder="Enter email"
                 />
                 <small id="emailHelp" class="form-text text-muted"
@@ -46,21 +46,34 @@
                 <label for="passwordField">Password</label>
                 <input
                   type="password"
+                  v-model="password"
                   class="form-control"
                   id="passwordField"
+                  required
                   placeholder="Password"
                 />
+                <div v-if="password.length < 6" class="text-danger">
+                  Your password must be at least 6 characters long.
+                </div>
               </div>
+
               <div class="form-group">
                 <label for="confirmPasswordField">Confirm Password</label>
                 <input
                   type="password"
+                  v-model="rPassword"
                   class="form-control"
                   id="confirmPasswordField"
+                  required
                   placeholder="Confirm password"
                 />
+                <div v-if="password != rPassword" class="text-danger">
+                  Passwords don't match!
+                </div>
               </div>
-              <button type="button" class="button">Submit</button>
+              <button type="button" class="button" @click="signupFn()">
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -110,18 +123,14 @@ form {
 }
 
 .backButton {
+  color: white;
+  background-color: #2d2d2d;
   float: left;
-  margin-top: 2%;
-  white-space: nowrap;
-  margin-left: 20px;
-  max-height: 20px;
-  max-width: 30px;
-}
-.backText {
-  color: #2d2d2d;
-  display: inline;
-  float: left;
+  width: 12%;
+  border-style: none;
+  border-radius: 10px;
   margin-top: 1.75%;
+  margin-left: 2%;
 }
 
 .button {
@@ -172,12 +181,26 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   name: "signup",
+  data() {
+    return {
+      fullname: "",
+      email: "",
+      password: "",
+      rPassword: "",
+    };
+  },
   components: {
     Footer,
   },
   methods: {
     onSubmit() {
       store.authenticated = true;
+    },
+    goBackFn() {
+      this.$router.push({ name: "Landing" });
+    },
+    signupFn() {
+      // funkcija za signup
     },
   },
 };
