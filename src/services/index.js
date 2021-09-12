@@ -33,12 +33,23 @@ let Auth = {
   async loginFn(mail, password) {
     let response = await Service.post("/auth", {
       mail: mail,
-      password: password, // bilo bi dobro hashirat
+      password: password, // bilo bi dobro hashirat await bcrypt.hash(userData.password, 8),
     });
 
     let user = response.data;
 
     localStorage.setItem("user", JSON.stringify(user));
+
+    return true;
+  },
+  async signupFn(mail, username, password) {
+    let response = await Service.post("/users", {
+      mail: mail,
+      username: username,
+      password: password,
+    });
+
+    let user = response.data;
 
     return true;
   },

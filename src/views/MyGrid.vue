@@ -6,7 +6,7 @@
         <div class="col-2" />
         <div class="col-3">
           <p style="color:white">
-            <strong> Today's date is </strong> {{ currentDate }}
+            <strong> Today's date is gang gang </strong> {{ currentDate }}
           </p>
           <b-calendar
             v-model="datum"

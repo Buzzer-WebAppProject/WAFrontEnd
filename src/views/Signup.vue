@@ -10,7 +10,7 @@
                 Go back
               </button>
             </div>
-            <form @submit.prevent="onSubmit">
+            <form @submit.prevent="signupFn()">
               <div class="introText">
                 <h1 class="main-title">Register</h1>
                 <div class="dropdown-divider"></div>
@@ -71,7 +71,7 @@
                   Passwords don't match!
                 </div>
               </div>
-              <button type="button" class="button" @click="signupFn()">
+              <button type="submit" class="button" @click="signupFn()">
                 Submit
               </button>
             </form>
@@ -178,11 +178,13 @@ form {
 <script>
 import store from "@/store.js";
 import Footer from "@/components/Footer.vue";
+import { Auth } from "@/services";
 
 export default {
   name: "signup",
   data() {
     return {
+      auth: Auth.state,
       fullname: "",
       email: "",
       password: "",
@@ -199,8 +201,20 @@ export default {
     goBackFn() {
       this.$router.push({ name: "Landing" });
     },
-    signupFn() {
+    async signupFn() {
       // funkcija za signup
+      let success = await Auth.signupFn(
+        this.email,
+        this.fullname,
+        this.password
+      );
+
+      console.log("Registering", this.email);
+      console.log("with:", this.fullname, this.password);
+
+      if (success == true) {
+        this.$router.push({ name: "Login" });
+      }
     },
   },
 };
