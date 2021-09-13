@@ -6,7 +6,7 @@
         <div class="col-2" />
         <div class="col-3">
           <p style="color:white">
-            <strong> Today's date is gang gang </strong> {{ currentDate }}
+            <strong> Today's date is </strong> {{ currentDate }}
           </p>
           <b-calendar
             v-model="datum"
@@ -72,26 +72,78 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-11">
-                      <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nunc sed rhoncus massa. Etiam feugiat enim quis nulla
-                        accumsan, ut venenatis tellus facilisis. Nulla iaculis
-                        ante a dolor auctor, sed iaculis sem consectetur. Donec
-                        sit amet cursus erat, nec facilisis leo. Sed sed
-                        eleifend mauris. Vestibulum ante ipsum primis in
-                        faucibus orci luctus et ultrices posuere cubilia curae;
-                        Pellentesque fringilla libero ut varius semper. Fusce
-                        porta sem massa, eu imperdiet ante molestie vitae. Cras
-                        viverra sapien est, sit amet venenatis metus bibendum
-                        non. Pellentesque leo eros, molestie sit amet massa nec,
-                        dignissim commodo magna. Nulla consequat felis eros, a
-                        ornare risus condimentum nec. Fusce ut lacus non augue
-                        ullamcorper tristique. Morbi efficitur elit erat, at
-                        pharetra mauris aliquam vel. Duis in nisi nec diam
-                        rutrum pellentesque. Maecenas diam orci, vestibulum quis
-                        velit venenatis, tempor hendrerit massa.
-                      </p>
+                      <div class="beehiveSum">
+                        Welcome user!
+                        <br />
+                        you have xxx beehives
+                        <br />
+                        you can add/remove them with these buttons below
+                        <br />
+                        or swipe right to view them
+                      </div>
+                      <div class="pdp" id="PopUp">
+                        <div class="form-popup">
+                          <div class="popup-container">
+                            <div class="sgp-form">
+                              <label for="nickname"
+                                >Give the beehive a nickname to remember it
+                                easier</label
+                              >
+                              <input
+                                type="text"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="queen Amber"
+                              />
+
+                              <br />
+
+                              <label for="lastFeedingDate"
+                                >Last Feeding Date</label
+                              >
+                              <input
+                                type="date"
+                                style="text"
+                                class="form-control"
+                              />
+
+                              <br />
+
+                              <label for="OutsideTemperature"
+                                >Temperature outside of the beehive</label
+                              >
+                              <input
+                                type="text"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="e.g 34 C"
+                              />
+
+                              <br />
+
+                              <label for="InsideTemperature"
+                                >Temperature inside of the beehive</label
+                              >
+                              <input
+                                type="text"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="e.g 34 C"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
+                    <button class="button" @click="openPopUp()" type="button">
+                      Add new beehive
+                    </button>
+                    <button class="button delBtn" type="button">
+                      Delete beehive
+                    </button>
                   </div>
                 </div>
               </div>
@@ -128,12 +180,6 @@
                           <div class="dropdown-divider" />
                         </div>
                       </div>
-                      <button class="button" type="button">
-                        Add new beehive
-                      </button>
-                      <button class="button delBtn" type="button">
-                        Delete beehive
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -170,18 +216,40 @@
   padding-left: 0;
   border: 1px solid #2d2d2d;
 }
+.beehiveSum {
+  width: 40%;
+  border: 2px solid white;
+  float: left;
+}
+.PopUp {
+  border: 2px solid white;
+  float: right;
+}
+.pdp {
+  margin-top: 50px;
+  float: right;
+
+  border: 2px solid white;
+  border-radius: 10px;
+  /* The popup form - hidden by default */
+  display: none;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #2d2d2d;
+  z-index: 9;
+}
+.sgp-form {
+  width: 70%;
+}
 
 .contentBox {
   border: 1px solid #2d2d2d;
-
   color: white;
 }
 .contentText {
   text-align: left;
 }
-.userInfo {
-  border: 1px solid red;
-}
+
 .beehiveInfo {
   float: left;
   bottom: 0;
@@ -200,6 +268,7 @@
   width: 150px;
   border-radius: 10px; /*rounded*/
   padding: 5px;
+  margin-top: 2%;
 
   background-color: #2d2d2d;
   color: white;
@@ -248,6 +317,7 @@
 <script>
 import Header from "../components/Header.vue";
 import store from "@/store.js";
+import { Auth, bWork } from "@/services";
 
 $(".carousel").carousel({
   // this should be the interval after which the carousel rotates by itself
@@ -260,17 +330,9 @@ export default {
   data() {
     return {
       store,
-      userMail: "",
-      userName: "",
-      bCount: "",
-      bId: "",
-      bLastFed: "",
-      bInsTemp: "",
-      bOutTemp: "",
-      currentDate: "",
-      fedToday: "",
-      beehives: [],
+      auth: Auth.state,
       datum: null,
+      beehives: [],
     };
   },
   mounted() {
@@ -279,6 +341,9 @@ export default {
     // this.getOutsideTemperature();
   },
   methods: {
+    openPopUp() {
+      document.getElementById("PopUp").style.display = "block";
+    },
     createBeehive() {},
     deleteBeehive() {},
     setFeedingDate() {},
@@ -286,64 +351,32 @@ export default {
     getInsideTemperature() {},
     getOutsideTemperature() {},
     getInfo() {
-      // var proxyUser = store.user;
-      // this.userMail = proxyUser.email;
-      // this.userName = proxyUser.name;
-      // this.userSurname = proxyUser.surname;
-      // this.bCount = proxyUser.beehiveCount;
-      // for (var i = 0; i < this.bCount; i++) {
-      //   // this loop will get data for every beehive a person has
-      //   var date = new Date();
-      //   var tDate =
-      //     date.getFullYear() +
-      //     "-" +
-      //     (date.getMonth() + 1) +
-      //     "-" +
-      //     date.getDate();
-      //   this.currentDate = tDate;
-      //   this.bId = proxyUser.beehive[i].beehiveId;
-      //   this.bLastFed = proxyUser.beehive[i].lastFeedingDate;
-      //   this.bInsTemp = proxyUser.beehive[i].insideTemp;
-      //   this.bOutTemp = proxyUser.beehive[i].outsideTemp;
-      //   this.fedToday;
-      //   if (this.currentDate != this.bLastFed) {
-      //     this.fedToday = "No";
-      //   } else this.fedToday = "Yes";
-      //   this.beehives.push({
-      //     // we push beehive data into our beehive array
-      //     bId: this.bId,
-      //     bLastFed: this.bLastFed,
-      //     bInsTemp: this.bInsTemp,
-      //     bOutTemp: this.bOutTemp,
-      //     fedToday: this.fedToday,
-      //   });
-      // }
-      console.log(this.beehives);
       var date = new Date();
       var tDate =
         date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
 
-      fetch("http://localhost:3000/beehives")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log("podaci s bekenda", data);
-          // data lokalno: userMail, userName, userSurname, bCount, bId, bLastFed, fedToday, bInsTemp, bOutTemp, datum, beehives []
-          // data backend: mail, id, fullname, beehiveCount, beehives.id, .lastFeedingDate, .InsideTemperature, .OutsideTemperature
+      let currentUser = this.auth.userEmail;
+      console.log("current user", currentUser);
 
-          // data.map(element => sta napraviti s njim)
-          let data2 = data.map((element) => {
-            return {
-              userMail: element.mail,
-              userName: element.fullname,
-              userId: element.UID,
-              beehives: element.beehives,
-            };
-          });
-          console.log(data2);
-          this.beehives = data2;
+      bWork.getBeehives(currentUser).then((response) => {
+        let data = response.data;
+        console.log("podaci s bekenda", data);
+        // data lokalno: userMail, userName, userSurname, bCount, bId, bLastFed, fedToday, bInsTemp, bOutTemp, datum, beehives []
+        // data backend: mail, id, fullname, beehiveCount, beehives.id, .lastFeedingDate, .InsideTemperature, .OutsideTemperature
+
+        // data.map(element => sta napraviti s njim)
+
+        var data2 = data.map((element) => {
+          return {
+            beehives: element.beehives,
+          };
         });
+
+        for (let i = 0; i < data.length; i++) {
+          console.log("i", i);
+        }
+        console.log("data2", data2);
+      });
     },
     setToday() {
       this.datum = this.currentDate;
