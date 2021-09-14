@@ -56,7 +56,7 @@
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/varroosis.jpg"
             />
             <p class="text">
               Varroosis of honey bees is a commonly known and widespread
@@ -88,7 +88,7 @@
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/amitraz-varroa.jpg"
             />
             <p class="text">
               The varroa mite is similar to the tick you might have seen in
@@ -122,7 +122,7 @@
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/amipol-varroa-prevention.jpg"
             />
             <p class="text">
               The Amipol T Prevention of Varroosis is a treatment measure that
@@ -145,7 +145,7 @@
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/oxalic-acid.jpg"
             />
             <p class="text">
               Varroa mites are perhaps the most common pest devastating honey
@@ -169,32 +169,22 @@
             <div class="dropdown-divider" />
 
             <h2 class="ArtTitle">
-              Taktic Amitraz Varroa Mite Treatment Review
+              Basalt Varroosis Prevention and Treatment Tablets Review
             </h2>
 
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/basalt-varroosis.jpg"
             />
             <p class="text">
-              The varroa mite is similar to the tick you might have seen in
-              livestock. As a matter of fact, they are close relatives. This
-              mite has been devastating bee colonies for decades since it was
-              first reported within the USA in 1980s. There are so many products
-              and techniques that can be used to minimize or even eliminate the
-              varroa mites. The use of miticides and other treatments has been
-              on the rise, even though some beekeepers are still skeptical about
-              chemical treatments. This can be justified since a lot of negative
-              information is out there. However, it is important to note that
-              chemical solutions are only used when deemed necessary and should
-              be used with caution. Local regulations as well as information
-              provided on labels should be adhered to. It is a lack of knowledge
-              that causes most users to brush off a remedy even before they
-              fully comprehend all it entails. Taktic Amitraz offers a chemical
-              solution to the invasive varroa mites. Its main ingredient is the
-              widely used Amitraz that works as a systemic acaricide targeting
-              parasitic mites such as varroa mites.
+              The invasive varroa mites are a serious threat to beekeepers. 
+              It is believed to have originated from the Far East where its main host is the Asian honey bee. 
+              The European bees are a target and are more susceptible to the mites. 
+              Various measures have been tested and proven to help counter the varroa mites. 
+              One such measure is the use of smoke treatment when it comes to the diagnosis, 
+              treatment and prevention of varroosis. This method is effective but requires proper 
+              timing and adherence to the recommended application procedure.
             </p>
 
             <br />
@@ -204,32 +194,23 @@
             <div class="dropdown-divider" />
 
             <h2 class="ArtTitle">
-              Taktic Amitraz Varroa Mite Treatment Review
+              Using Fluvalinate for Varroa Mite Treatment
             </h2>
 
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/fluvalinate-varroa.jpg"
             />
             <p class="text">
-              The varroa mite is similar to the tick you might have seen in
-              livestock. As a matter of fact, they are close relatives. This
-              mite has been devastating bee colonies for decades since it was
-              first reported within the USA in 1980s. There are so many products
-              and techniques that can be used to minimize or even eliminate the
-              varroa mites. The use of miticides and other treatments has been
-              on the rise, even though some beekeepers are still skeptical about
-              chemical treatments. This can be justified since a lot of negative
-              information is out there. However, it is important to note that
-              chemical solutions are only used when deemed necessary and should
-              be used with caution. Local regulations as well as information
-              provided on labels should be adhered to. It is a lack of knowledge
-              that causes most users to brush off a remedy even before they
-              fully comprehend all it entails. Taktic Amitraz offers a chemical
-              solution to the invasive varroa mites. Its main ingredient is the
-              widely used Amitraz that works as a systemic acaricide targeting
-              parasitic mites such as varroa mites.
+              Fluvalinate is a synthetic pyrethroid that is commonly used in the control of Varroa 
+              mites in bees. Fluvalinate is sold under varying brand names and is one of the first 
+              pesticides to be registered with the EPA for the control of Varroa mites in the United 
+              States. It may be applied in form of strips or other preparations. The Fluvalinate Mite 
+              Killing Pest Control Varroa Strip® comes in packages of 20 yellow colored plastic strips. 
+              No license is required to purchase and use these strips as the pesticide (Fluvalinate) 
+              is already licensed. This article looks at using Fluvalinate for Varroa mite treatment 
+              and the benefits it gives you in your beekeeping operation.
             </p>
 
             <br />
@@ -239,32 +220,22 @@
             <div class="dropdown-divider" />
 
             <h2 class="ArtTitle">
-              Taktic Amitraz Varroa Mite Treatment Review
+              Bayvarol Varroa Mite Treatment Review
             </h2>
 
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/bayvarol-varroa.png"
             />
             <p class="text">
-              The varroa mite is similar to the tick you might have seen in
-              livestock. As a matter of fact, they are close relatives. This
-              mite has been devastating bee colonies for decades since it was
-              first reported within the USA in 1980s. There are so many products
-              and techniques that can be used to minimize or even eliminate the
-              varroa mites. The use of miticides and other treatments has been
-              on the rise, even though some beekeepers are still skeptical about
-              chemical treatments. This can be justified since a lot of negative
-              information is out there. However, it is important to note that
-              chemical solutions are only used when deemed necessary and should
-              be used with caution. Local regulations as well as information
-              provided on labels should be adhered to. It is a lack of knowledge
-              that causes most users to brush off a remedy even before they
-              fully comprehend all it entails. Taktic Amitraz offers a chemical
-              solution to the invasive varroa mites. Its main ingredient is the
-              widely used Amitraz that works as a systemic acaricide targeting
-              parasitic mites such as varroa mites.
+              One of the biggest impacts of varroa mite infestation is colony collapse that is fueled 
+              by winter challenges such as food shortage, extremely low temperatures, and predisposition 
+              to pests and diseases. If the mites are left uncontrolled, even strong bee colonies 
+              can be wiped out in a matter of months. Varroa mites have ferocious appetite and enjoy 
+              a shorter life cycle giving them an edge over the honey bee. The Bayvarol strips helps 
+              in the diagnosis and treatment of varroa mites. It comprises Flumethrin as its active 
+              ingredient. In this article, we will discuss its efficacy and usage.
             </p>
 
             <br />
@@ -274,32 +245,24 @@
             <div class="dropdown-divider" />
 
             <h2 class="ArtTitle">
-              Taktic Amitraz Varroa Mite Treatment Review
+              Amitraz Plus Strips Varroa Mite Treatment Review
             </h2>
 
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/amitraz-plus-strips.jpg"
             />
             <p class="text">
-              The varroa mite is similar to the tick you might have seen in
-              livestock. As a matter of fact, they are close relatives. This
-              mite has been devastating bee colonies for decades since it was
-              first reported within the USA in 1980s. There are so many products
-              and techniques that can be used to minimize or even eliminate the
-              varroa mites. The use of miticides and other treatments has been
-              on the rise, even though some beekeepers are still skeptical about
-              chemical treatments. This can be justified since a lot of negative
-              information is out there. However, it is important to note that
-              chemical solutions are only used when deemed necessary and should
-              be used with caution. Local regulations as well as information
-              provided on labels should be adhered to. It is a lack of knowledge
-              that causes most users to brush off a remedy even before they
-              fully comprehend all it entails. Taktic Amitraz offers a chemical
-              solution to the invasive varroa mites. Its main ingredient is the
-              widely used Amitraz that works as a systemic acaricide targeting
-              parasitic mites such as varroa mites.
+              Some of the commonly used methods of dealing with varroa mites include: physical, mechanical, 
+              chemical and behavioral. Chemical control measures are generally much more effective, given 
+              the fact that they help to completely wipe out the invasive mites. One of the biggest challenges 
+              when dealing with varroa mites, is the fact that their developmental stages are well protected 
+              courtesy of the encrusted brood cells. This is where they develop rapidly and are able to evade 
+              treatment. Amitraz Plus Strips offer a better way of dealing with varroa mites. The potent 
+              ingredients in the strips make it possible to target the adult form of the mites. It also remains 
+              active and useful for an extended period, making it possible to annihilate the varroa mites that 
+              emerge from enclosed brood cells.
             </p>
 
             <br />
@@ -309,32 +272,68 @@
             <div class="dropdown-divider" />
 
             <h2 class="ArtTitle">
-              Taktic Amitraz Varroa Mite Treatment Review
+              Bipinamite to Combat Varroosis of Bees Review
             </h2>
 
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/bipinamite-varroasis.jpg"
             />
             <p class="text">
-              The varroa mite is similar to the tick you might have seen in
-              livestock. As a matter of fact, they are close relatives. This
-              mite has been devastating bee colonies for decades since it was
-              first reported within the USA in 1980s. There are so many products
-              and techniques that can be used to minimize or even eliminate the
-              varroa mites. The use of miticides and other treatments has been
-              on the rise, even though some beekeepers are still skeptical about
-              chemical treatments. This can be justified since a lot of negative
-              information is out there. However, it is important to note that
-              chemical solutions are only used when deemed necessary and should
-              be used with caution. Local regulations as well as information
-              provided on labels should be adhered to. It is a lack of knowledge
-              that causes most users to brush off a remedy even before they
-              fully comprehend all it entails. Taktic Amitraz offers a chemical
-              solution to the invasive varroa mites. Its main ingredient is the
-              widely used Amitraz that works as a systemic acaricide targeting
-              parasitic mites such as varroa mites.
+              A product such as Bipinamite is a special formulation that is widely accepted by beekeepers given its 
+              efficacy. It however requires strict adherence to stipulated protocols, otherwise mites may develop some 
+              resistance, or the honey bee products may become contaminated with chemical residues. In this article, 
+              we'll be taking a detailed look at Bipinamite and how you can benefit from its use.
+            </p>
+
+            <br />
+          </div>
+
+          <div class="paragraph">
+            <div class="dropdown-divider" />
+
+            <h2 class="ArtTitle">
+              Treating Tracheal Mites in Honey Bees
+            </h2>
+
+            <img
+              class="image"
+              alt="image"
+              src="@/assets/PostImages/treating-tracheal-mites.jpg"
+            />
+            <p class="text">
+              The tracheal mite, while not native to America, was first reported in Texas where, in 1984, a commercial apiary 
+              operation tested positive for the mite. It has by now spread to all the beekeeping states in the USA despite a 
+              huge effort to control the spread by destroying infected colonies. The parasite is spread easily among colonies 
+              by drifting bees and through any activity where live bees are moved around colonies. Honey bees contaminated with 
+              mites have been found in randomly selected swarms (colonies) and even in packaged bees and queens. This guide 
+              takes you through treating tracheal mites (Acarapis Woodi) in honey bees.
+            </p>
+
+            <br />
+          </div>
+
+          <div class="paragraph">
+            <div class="dropdown-divider" />
+
+            <h2 class="ArtTitle">
+              Formic Acid Treatment for Honey Bees
+            </h2>
+
+            <img
+              class="image"
+              alt="image"
+              src="@/assets/PostImages/formic-acid-treatment.jpg"
+            />
+            <p class="text">
+              Controlling parasites is standard part of beehive management. One such parasite 
+              of honey bees is the Varroa mite, which can causes colonies to get weak and deformities 
+              to appear in bees. Various treatments are applied by beekeepers to keep Varroa mites 
+              in check. Formic acid is one such treatment used and it can be applied in various forms. 
+              You can make your own formic acid preparations for the various methods of application. 
+              However, there are also some formic acid treatments for honey bees solutions that are sold 
+              to beekeepers. They are easy to use and can be applied by both beginner and experienced beekeepers.
             </p>
 
             <br />
@@ -353,7 +352,7 @@
 }
 
 h1 {
-  color: white;
+  color: goldenrod;
 }
 
 .dropdown-divider {
