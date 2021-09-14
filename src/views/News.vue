@@ -22,7 +22,7 @@
           <br />
 
           <div class="paragraph">
-            <div class="dropdown-divider" />
+            <div class="dropdown-divider-middle" />
 
             <h2 class="ArtTitle">
               Beekeeping Barrier Management System for Pest and Disease Control
@@ -31,57 +31,7 @@
             <img
               class="image"
               alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
-            />
-            <p class="text">
-              A structured approach in barrier management gives you the best
-              results in pest and disease control. It allows you unique insights
-              into the barriers you establish and their effectiveness. You are
-              also able to follow up and monitor performance of the barriers
-              with ease. The barrier management system for pest and disease
-              control in your beekeeping operation makes the operation safe,
-              with your better understanding of risks.
-            </p>
-
-            <br />
-          </div>
-
-          <div class="paragraph">
-            <div class="dropdown-divider" />
-
-            <h2 class="ArtTitle">
-              Beekeeping Barrier Management System for Pest and Disease Control
-            </h2>
-
-            <img
-              class="image"
-              alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
-            />
-            <p class="text">
-              A structured approach in barrier management gives you the best
-              results in pest and disease control. It allows you unique insights
-              into the barriers you establish and their effectiveness. You are
-              also able to follow up and monitor performance of the barriers
-              with ease. The barrier management system for pest and disease
-              control in your beekeeping operation makes the operation safe,
-              with your better understanding of risks.
-            </p>
-
-            <br />
-          </div>
-
-          <div class="paragraph">
-            <div class="dropdown-divider" />
-
-            <h2 class="ArtTitle">
-              Beekeeping Barrier Management System for Pest and Disease Control
-            </h2>
-
-            <img
-              class="image"
-              alt="image"
-              src="@/assets/PostImages/PnP-first.jpg"
+              src="@/assets/PostImages/varroosis.jpg"
             />
             <p class="text">
               A structured approach in barrier management gives you the best
