@@ -3,10 +3,10 @@
     <Header />
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2" />
+        <div class="col-1" />
         <div class="col-3">
           <p style="color:white">
-            <strong> Today's date is </strong> {{ currentDate }}
+            <strong> Today's date is </strong> {{ this.currentDate }}
           </p>
           <b-calendar
             v-model="datum"
@@ -49,7 +49,7 @@
           </b-calendar>
         </div>
 
-        <div class="col-6 contentBox">
+        <div class="col-8 contentBox">
           <div
             id="carouselExampleIndicators"
             class="carousel slide"
@@ -71,15 +71,51 @@
               <div class="carousel-item active">
                 <div class="container">
                   <div class="row">
-                    <div class="col-11">
+                    <div class="col-12">
                       <div class="beehiveSum">
-                        Welcome user!
+                        <h2>Welcome {{ auth.userEmail }}!</h2>
+
                         <br />
-                        you have xxx beehives
-                        <br />
-                        you can add/remove them with these buttons below
-                        <br />
-                        or swipe right to view them
+
+                        <div class="SumText">
+                          <div class="beehives">
+                            <p v-if="this.beehiveCount == 0" class="SumText">
+                              You don't have any beehives at the moment, how
+                              about you insert some.
+                            </p>
+
+                            <p v-if="this.beehiveCount == 1" class="SumText">
+                              You have {{ this.beehiveCount }} beehive.
+                            </p>
+
+                            <p v-if="this.beehiveCount >= 1" class="SumText">
+                              You have {{ this.beehiveCount }} beehives.
+                            </p>
+                          </div>
+
+                          <br />
+
+                          <ul
+                            class="list"
+                            v-for="item in beehives"
+                            :key="item.nick"
+                            :item="item"
+                          >
+                            <li>{{ item.nick }}<br /></li>
+                          </ul>
+
+                          <br />
+
+                          <p class="SumText">
+                            You can add/remove them with these buttons below
+                          </p>
+
+                          <br />
+
+                          <p class="SumText">
+                            Or swipe right to view them
+                          </p>
+                        </div>
                       </div>
                       <div class="pdp" id="PopUp">
                         <div class="form-popup">
@@ -91,10 +127,11 @@
                               >
                               <input
                                 type="text"
+                                v-model="nick"
                                 style="text"
                                 class="form-control"
                                 required
-                                placeholder="queen Amber"
+                                placeholder="e.g queen Amber"
                               />
 
                               <br />
@@ -104,6 +141,7 @@
                               >
                               <input
                                 type="date"
+                                v-model="lastFeedingDate"
                                 style="text"
                                 class="form-control"
                               />
@@ -114,12 +152,16 @@
                                 >Temperature outside of the beehive</label
                               >
                               <input
-                                type="text"
+                                type="number"
+                                v-model="OutsideTemperature"
                                 style="text"
                                 class="form-control"
                                 required
                                 placeholder="e.g 34 C"
                               />
+                              <p class="text-muted" style="color: gold;">
+                                Please insert just a numerical value
+                              </p>
 
                               <br />
 
@@ -127,19 +169,138 @@
                                 >Temperature inside of the beehive</label
                               >
                               <input
-                                type="text"
+                                type="number"
+                                v-model="InsideTemperature"
                                 style="text"
                                 class="form-control"
                                 required
                                 placeholder="e.g 34 C"
                               />
+                              <p class="text-muted" style="color: gold;">
+                                Please insert just a numerical value
+                              </p>
+
+                              <button
+                                type="button"
+                                @click="createBeehive()"
+                                class="button addButton"
+                              >
+                                Create Beehive
+                              </button>
+
+                              <button
+                                @click="closePopUp()"
+                                type="button"
+                                class="button delBtn"
+                              >
+                                Close
+                              </button>
                             </div>
                           </div>
                         </div>
                       </div>
+                      <!-- <div class="pdp" id="PopUp2">
+                        <div class="form-popup">
+                          <div class="popup-container">
+                            <div class="sgp-form">
+                              <label for="nickname"
+                                >Which beehive would you like to edit?</label
+                              >
+                              
+                              <select class="drop" v-model="id">
+                                <option
+                                  :value="item.id"
+                                  v-for="item in beehives"
+                                  :key="item._id"
+                                  :item="item"
+                                >
+                                  {{ item.nick }}</option
+                                >
+                              </select>
+                              
+                              <input
+                                type="text"
+                                v-model="newNick"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="insert a new nickname"
+                              />
+
+                              <br />
+
+                              <label for="lastFeedingDate"
+                                >Last Feeding Date</label
+                              >
+                              <input
+                                type="date"
+                                v-model="newlastFeedingDate"
+                                style="text"
+                                class="form-control"
+                              />
+                              <p class="text-muted">
+                                Please select a date
+                              </p>
+
+                              <br />
+
+                              <label for="OutsideTemperature"
+                                >Temperature outside of the beehive</label
+                              >
+                              <input
+                                type="number"
+                                v-model="newOutsideTemperature"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="e.g 34 C"
+                              />
+                              <p class="text-muted">
+                                Please insert just a numerical value
+                              </p>
+
+                              <br />
+
+                              <label for="InsideTemperature"
+                                >Temperature inside of the beehive</label
+                              >
+                              <input
+                                type="number"
+                                v-model="newInsideTemperature"
+                                style="text"
+                                class="form-control"
+                                required
+                                placeholder="e.g 34 C"
+                              />
+                              <p class="text-muted">
+                                Please insert just a numerical value
+                              </p>
+
+                              <button
+                                type="button"
+                                @click="updateBeehive()"
+                                class="button addButton"
+                              >
+                                Save Changes
+                              </button>
+
+                              <button
+                                @click="closePopUp2()"
+                                type="button"
+                                class="button delBtn"
+                              >
+                                Close
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div> -->
                     </div>
                     <button class="button" @click="openPopUp()" type="button">
                       Add new beehive
+                    </button>
+                    <button class="button" @click="openPopUp2()" type="button">
+                      Edit existing beehive
                     </button>
                     <button class="button delBtn" type="button">
                       Delete beehive
@@ -154,28 +315,33 @@
                     <div class="row">
                       <div class="col-11">
                         <div
-                          v-for="bHive in beehives"
-                          :key="bHive.bId"
-                          :bHive="bHive"
+                          v-for="item in beehives"
+                          :key="item.nick"
+                          :item="item"
                           class="contentText"
                           alt="First Slide"
                         >
-                          <p><strong>Beehive ID:</strong> {{ bHive.bId }}</p>
-                          <br />
                           <p>
-                            <strong>Fed today:</strong> {{ bHive.fedToday }}
+                            <strong>Beehive nickname:</strong> {{ item.nick }}
                           </p>
                           <br />
-                          <p><strong>Last fed:</strong> {{ bHive.bLastFed }}</p>
+                          <!-- <p>
+                            <strong>Fed today:</strong> {{ item.fedToday }}
+                          </p>
+                          <br /> -->
+                          <p>
+                            <strong>Last fed:</strong>
+                            {{ item.lastFeedingDate }}
+                          </p>
                           <br />
                           <p>
                             <strong>Temperature inside beehive:</strong>
-                            {{ bHive.bInsTemp }}
+                            {{ item.InsideTemperature }}
                           </p>
                           <br />
                           <p>
                             <strong>Temperature outside beehive:</strong>
-                            {{ bHive.bOutTemp }}
+                            {{ item.OutsideTemperature }}
                           </p>
                           <div class="dropdown-divider" />
                         </div>
@@ -199,8 +365,6 @@
             </a>
           </div>
         </div>
-
-        <div class="col-1" />
       </div>
     </div>
   </div>
@@ -221,15 +385,29 @@
   border: 2px solid white;
   float: left;
 }
+.list {
+  width: 50%;
+  text-align: left;
+}
+.SumText {
+  float: left;
+}
+.nicknames {
+  float: left;
+}
+.drop {
+  margin-right: 5%;
+}
+
 .PopUp {
   border: 2px solid white;
   float: right;
 }
 .pdp {
   margin-top: 50px;
+  width: 60%;
   float: right;
 
-  border: 2px solid white;
   border-radius: 10px;
   /* The popup form - hidden by default */
   display: none;
@@ -265,7 +443,7 @@
 
 .button {
   /*the styling for our button*/
-  width: 150px;
+  width: 30%;
   border-radius: 10px; /*rounded*/
   padding: 5px;
   margin-top: 2%;
@@ -289,6 +467,10 @@
 }
 .delBtn:hover {
   background-color: red;
+  color: white;
+}
+.addButton:hover {
+  background-color: olivedrab;
   color: white;
 }
 .button span {
@@ -331,52 +513,105 @@ export default {
     return {
       store,
       auth: Auth.state,
-      datum: null,
+      bwork: bWork.state,
+      nick: "",
+      newNick: "",
+      lastFeedingDate: "",
+      newlastFeedingDate: "",
+      OutsideTemperature: "",
+      newOutsideTemperature: "",
+      InsideTemperature: "",
+      newInsideTemperature: "",
+      beehiveCount: "",
+      datum: "",
+      id: "",
+      currentDate: "",
       beehives: [],
     };
   },
   mounted() {
     this.getInfo();
-    // this.getInsideTemperature();
-    // this.getOutsideTemperature();
+    this.setCurrentDate();
   },
   methods: {
     openPopUp() {
       document.getElementById("PopUp").style.display = "block";
     },
-    createBeehive() {},
-    deleteBeehive() {},
-    setFeedingDate() {},
-    getLastFeedingDate() {},
-    getInsideTemperature() {},
-    getOutsideTemperature() {},
-    getInfo() {
-      var date = new Date();
-      var tDate =
-        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    closePopUp() {
+      document.getElementById("PopUp").style.display = "none";
+    },
+    openPopUp2() {
+      document.getElementById("PopUp2").style.display = "block";
+    },
+    closePopUp2() {
+      document.getElementById("PopUp2").style.display = "none";
+    },
+    updateBeehive() {
+      console.log(
+        "id",
+        this.id,
+        "mail",
+        this.auth.userEmail,
+        "nick",
+        this.newNick,
+        "lastfed",
+        this.newlastFeedingDate,
+        "out",
+        this.newOutsideTemperature,
+        "ins",
+        this.newInsideTemperature
+      );
 
+      // bWork.updateOne(this.id);
+      // this.$router.go();
+    },
+    createBeehive() {
+      let beehiveData = {
+        mail: this.auth.userEmail,
+        nick: this.nick,
+        id: this.id,
+        lastFeedingDate: this.lastFeedingDate,
+        InsideTemperature: this.InsideTemperature,
+        OutsideTemperature: this.OutsideTemperature,
+      };
+
+      bWork.createBeehives(beehiveData);
+
+      alert("Beehive created successfully");
+
+      this.nick = "";
+      this.lastFeedingDate = "";
+      this.InsideTemperature = "";
+      this.OutsideTemperature = "";
+    },
+    deleteBeehive() {},
+    getInfo() {
       let currentUser = this.auth.userEmail;
-      console.log("current user", currentUser);
 
       bWork.getBeehives(currentUser).then((response) => {
         let data = response.data;
-        console.log("podaci s bekenda", data);
-        // data lokalno: userMail, userName, userSurname, bCount, bId, bLastFed, fedToday, bInsTemp, bOutTemp, datum, beehives []
-        // data backend: mail, id, fullname, beehiveCount, beehives.id, .lastFeedingDate, .InsideTemperature, .OutsideTemperature
-
-        // data.map(element => sta napraviti s njim)
-
-        var data2 = data.map((element) => {
+        this.beehives = data.map((doc) => {
           return {
-            beehives: element.beehives,
+            id: doc._id,
+            nick: doc.nick,
+            lastFeedingDate: doc.lastFeedingDate,
+            InsideTemperature: doc.InsideTemperature,
+            OutsideTemperature: doc.OutsideTemperature,
           };
         });
 
-        for (let i = 0; i < data.length; i++) {
-          console.log("i", i);
+        let bCount = 0;
+        for (let i = 0; i < this.beehives.length; i++) {
+          bCount++;
         }
-        console.log("data2", data2);
+        this.beehiveCount = bCount;
       });
+    },
+    setCurrentDate() {
+      var date = new Date();
+      var tDate =
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+      this.currentDate = tDate;
     },
     setToday() {
       this.datum = this.currentDate;

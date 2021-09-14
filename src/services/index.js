@@ -1,9 +1,10 @@
 import axios from "axios";
 import router from "@/router";
 
+// vezan uz backend
 let Service = axios.create({
-  baseURL: "http://localhost:3000",
-  timeout: 1000,
+  baseURL: "http://localhost:3000", // treba promijeniti kad budemo deployali
+  timeout: 10000, // 1000 je 1 sek
 });
 
 //interceptori za backend
@@ -28,6 +29,37 @@ let Service = axios.create({
 //     }
 //   }
 // );
+
+let bWork = {
+  async createBeehives(data) {
+    let serverData = {
+      mail: data.mail,
+      nick: data.nick,
+      lastFeedingDate: data.lastFeedingDate,
+      InsideTemperature: data.InsideTemperature,
+      OutsideTemperature: data.OutsideTemperature,
+    };
+
+    await Service.post("/beehives", serverData);
+  },
+  async getBeehives(mail) {
+    let response = await Service.get(`/beehives?mail=${mail}`);
+
+    return response;
+  },
+  async updateOne(id) {
+    let response = await Service.put(`/beehives/${id}`);
+
+    return response;
+  },
+  state: {
+    getBeehives() {
+      let user = Auth.getUser().mail;
+
+      return bWork.getBeehives(user);
+    },
+  },
+};
 
 let Auth = {
   async loginFn(mail, password) {
@@ -83,4 +115,4 @@ let Auth = {
   },
 };
 
-export { Service, Auth }; // exportamo Service za ručne pozive
+export { Service, Auth, bWork }; // exportamo Service za ručne pozive
