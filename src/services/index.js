@@ -47,7 +47,21 @@ let bWork = {
 
     return response;
   },
-  async updateOne(id) {
+  async updateOne(id, data) {
+    let serverData = {
+      id: data.id,
+      mail: data.mail,
+      nick: data.nick,
+      lastFeedingDate: data.lastFed,
+      OutsideTemperature: data.OutsideTemp,
+      InsideTemperature: data.InsideTemp,
+    };
+
+    let response = await Service.put(`/beehives/${id}`, serverData);
+
+    return response;
+  },
+  async deleteOne(id) {
     let response = await Service.put(`/beehives/${id}`);
 
     return response;

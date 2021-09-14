@@ -107,13 +107,14 @@
                           <br />
 
                           <p class="SumText">
-                            You can add/remove them with these buttons below
+                            You can add/edit/remove them with these buttons
+                            below
                           </p>
 
                           <br />
 
                           <p class="SumText">
-                            Or swipe right to view them
+                            Or click on the arrow on the right to view them
                           </p>
                         </div>
                       </div>
@@ -133,6 +134,10 @@
                                 required
                                 placeholder="e.g queen Amber"
                               />
+                              <p class="text-muted" style="color: gold;">
+                                Try not to give two(2) different beehives the
+                                same nickname
+                              </p>
 
                               <br />
 
@@ -199,14 +204,14 @@
                           </div>
                         </div>
                       </div>
-                      <!-- <div class="pdp" id="PopUp2">
+                      <div class="pdp" id="PopUp2">
                         <div class="form-popup">
                           <div class="popup-container">
                             <div class="sgp-form">
                               <label for="nickname"
-                                >Which beehive would you like to edit?</label
-                              >
-                              
+                                >Choose which beehive to edit
+                              </label>
+
                               <select class="drop" v-model="id">
                                 <option
                                   :value="item.id"
@@ -217,7 +222,7 @@
                                   {{ item.nick }}</option
                                 >
                               </select>
-                              
+
                               <input
                                 type="text"
                                 v-model="newNick"
@@ -294,16 +299,13 @@
                             </div>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
                     </div>
                     <button class="button" @click="openPopUp()" type="button">
                       Add new beehive
                     </button>
                     <button class="button" @click="openPopUp2()" type="button">
                       Edit existing beehive
-                    </button>
-                    <button class="button delBtn" type="button">
-                      Delete beehive
                     </button>
                   </div>
                 </div>
@@ -382,11 +384,10 @@
 }
 .beehiveSum {
   width: 40%;
-  border: 2px solid white;
   float: left;
 }
 .list {
-  width: 50%;
+  width: 40%;
   text-align: left;
 }
 .SumText {
@@ -397,6 +398,10 @@
 }
 .drop {
   margin-right: 5%;
+  background-color: #2d2d2d;
+  color: goldenrod;
+  border-radius: 10px;
+  margin-left: 5%;
 }
 
 .PopUp {
@@ -418,6 +423,12 @@
 }
 .sgp-form {
   width: 70%;
+}
+.form-control {
+  background-color: whitesmoke;
+  color: #2d2d2d;
+  border-radius: 5px;
+  border-style: none;
 }
 
 .contentBox {
@@ -447,6 +458,7 @@
   border-radius: 10px; /*rounded*/
   padding: 5px;
   margin-top: 2%;
+  margin-left: 1%;
 
   background-color: #2d2d2d;
   color: white;
@@ -514,19 +526,27 @@ export default {
       store,
       auth: Auth.state,
       bwork: bWork.state,
+
+      beehives: [],
+      beehiveCount: "",
+
       nick: "",
       newNick: "",
+
       lastFeedingDate: "",
       newlastFeedingDate: "",
+
       OutsideTemperature: "",
       newOutsideTemperature: "",
+
       InsideTemperature: "",
       newInsideTemperature: "",
-      beehiveCount: "",
-      datum: "",
+
       id: "",
+      idToDelete: "",
+
+      datum: "",
       currentDate: "",
-      beehives: [],
     };
   },
   mounted() {
@@ -535,35 +555,40 @@ export default {
   },
   methods: {
     openPopUp() {
-      document.getElementById("PopUp").style.display = "block";
+      if (document.getElementById("PopUp2").style.display == "block") {
+        document.getElementById("PopUp").style.display = "none";
+      } else {
+        document.getElementById("PopUp").style.display = "block";
+      }
     },
     closePopUp() {
       document.getElementById("PopUp").style.display = "none";
     },
     openPopUp2() {
-      document.getElementById("PopUp2").style.display = "block";
+      if (document.getElementById("PopUp").style.display == "block") {
+        document.getElementById("PopUp2").style.display = "none";
+      } else {
+        document.getElementById("PopUp2").style.display = "block";
+      }
     },
     closePopUp2() {
       document.getElementById("PopUp2").style.display = "none";
     },
     updateBeehive() {
-      console.log(
-        "id",
-        this.id,
-        "mail",
-        this.auth.userEmail,
-        "nick",
-        this.newNick,
-        "lastfed",
-        this.newlastFeedingDate,
-        "out",
-        this.newOutsideTemperature,
-        "ins",
-        this.newInsideTemperature
-      );
+      let data = {
+        id: this.id,
+        mail: this.auth.userEmail,
+        nick: this.newNick,
+        lastFed: this.newlastFeedingDate,
+        OutsideTemp: this.newOutsideTemperature,
+        InsideTemp: this.newInsideTemperature,
+      };
 
-      // bWork.updateOne(this.id);
-      // this.$router.go();
+      bWork.updateOne(this.id, data);
+      this.newNick = "";
+      this.newlastFeedingDate = "";
+      this.newInsideTemperature = "";
+      this.newOutsideTemperature = "";
     },
     createBeehive() {
       let beehiveData = {
@@ -584,7 +609,6 @@ export default {
       this.InsideTemperature = "";
       this.OutsideTemperature = "";
     },
-    deleteBeehive() {},
     getInfo() {
       let currentUser = this.auth.userEmail;
 
