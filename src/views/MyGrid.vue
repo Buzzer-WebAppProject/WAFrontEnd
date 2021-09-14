@@ -387,7 +387,7 @@
   float: left;
 }
 .list {
-  width: 40%;
+  width: 45%;
   text-align: left;
 }
 .SumText {
