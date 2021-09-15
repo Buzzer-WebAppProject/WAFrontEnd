@@ -28,11 +28,6 @@
                   >My Grid</router-link
                 >
               </li>
-              <li>
-                <router-link to="TaskManager" class="dropdown-item"
-                  >Task Manager</router-link
-                >
-              </li>
             </ul>
           </div>
         </div>

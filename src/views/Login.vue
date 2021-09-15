@@ -168,9 +168,6 @@ export default {
     Footer,
   },
   methods: {
-    onSubmit() {
-      store.authenticated = true;
-    },
     goBackFn() {
       this.$router.push({ name: "Landing" });
     },

@@ -69,12 +69,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "signup" */ "../views/GettingStarted.vue"),
   },
-  {
-    path: "/TaskManager",
-    name: "TaskManager",
-    component: () =>
-      import(/* webpackChunkName: "signup" */ "../views/TaskManager.vue"),
-  },
 ];
 
 const router = new VueRouter({
